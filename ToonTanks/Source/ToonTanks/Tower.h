@@ -23,8 +23,14 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
+	class ATank* Tank;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Targeting", meta = (AllowPrivateAccess = "true"))
 	float FireRange = 750.0f;
 
-	class ATank* Tank;
+	FTimerHandle FireRateTimerHandle;
+	float FireRate = 2.f;
+	void CheckFireCondition();
+
+	bool InFireRange();
 };
