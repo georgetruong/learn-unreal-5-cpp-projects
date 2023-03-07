@@ -38,7 +38,7 @@ private:
 	float Speed = 1000.0f;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement", meta = (AllowPrivateAccess = "true"))
-	float TurnRate = 100.0f;
+	float TurnRate = 250.0f;
 
 	void Move(float Value);
 	void Turn(float Value);
