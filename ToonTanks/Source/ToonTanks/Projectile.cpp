@@ -9,7 +9,7 @@
 
 // Sets default values
 AProjectile::AProjectile() {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Using ProjectileMovement physics instead of Tick instead
 	PrimaryActorTick.bCanEverTick = false;
 
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Projectile Mesh"));
@@ -34,7 +34,10 @@ void AProjectile::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
 }
 
-void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
+void AProjectile::OnHit(
+	UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, 
+	FVector NormalImpulse, const FHitResult& Hit
+) {
 	auto MyOwner = GetOwner();
 	if (MyOwner == nullptr) return;
 
