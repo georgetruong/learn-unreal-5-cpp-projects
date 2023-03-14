@@ -17,8 +17,7 @@ ATank::ATank() {
 }
 
 // Called to bind functionality to input
-void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
+void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
     PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
@@ -33,8 +32,7 @@ void ATank::BeginPlay() {
 }
 
 // Called every frame
-void ATank::Tick(float DeltaTime)
-{
+void ATank::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
 
     if(PlayerControllerRef) {
