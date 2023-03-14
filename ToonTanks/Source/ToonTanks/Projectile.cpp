@@ -16,11 +16,26 @@ AProjectile::AProjectile() {
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(
 		TEXT("Projectile Movement Component")
 	);
-	ProjectileMovementComponent->InitialSpeed = 250.0f;
-	ProjectileMovementComponent->MaxSpeed = 1000.0f;
+	ProjectileMovementComponent->InitialSpeed = 7500.0f;
+	ProjectileMovementComponent->MaxSpeed = 15000.0f;
 }
 
 // Called when the game starts or when spawned
 void AProjectile::BeginPlay() {
 	Super::BeginPlay();
+
+	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProjectile::OnHit);
+}
+
+// Called every frame
+void AProjectile::Tick(float DeltaTime) {
+	Super::Tick(DeltaTime);
+}
+
+void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
+	UE_LOG(LogTemp, Warning, TEXT("ON HIT"));
+
+	UE_LOG(LogTemp, Display, TEXT("Hit Comp: %s"), *HitComp->GetName());
+	UE_LOG(LogTemp, Display, TEXT("Other Actor: %s"), *OtherActor->GetName());
+	UE_LOG(LogTemp, Display, TEXT("Other Comp: %s"), *OtherComp->GetName());
 }
