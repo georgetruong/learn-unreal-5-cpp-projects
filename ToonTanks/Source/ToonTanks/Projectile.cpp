@@ -22,10 +22,8 @@ AProjectile::AProjectile() {
 	ProjectileMovementComponent->InitialSpeed = 7500.0f;
 	ProjectileMovementComponent->MaxSpeed = 15000.0f;
 
-/**
 	TrailParticles = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Smoke Trail"));
 	TrailParticles->SetupAttachment(RootComponent);
-**/
 }
 
 // Called when the game starts or when spawned
