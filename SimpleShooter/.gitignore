@@ -1,0 +1,12 @@
+Content/AssetPacks/
+Content/Collections/
+Content/Developers/
+Content/StarterContent/
+
+.vscode/
+
+Binaries/
+Intermediate/
+Platforms/
+Saved/
+
