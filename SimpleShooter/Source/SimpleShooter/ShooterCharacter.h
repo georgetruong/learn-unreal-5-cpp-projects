@@ -34,6 +34,8 @@ private:
 	void LookUpRate(float AxisValue);
 	void LookRightRate(float AxisValue);
 
+	void Shoot();
+
 	UPROPERTY(EditAnywhere)
 	float RotationRateUp = 75.0f;
 	float RotationRateRight = 10.0f;
