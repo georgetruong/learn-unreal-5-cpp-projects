@@ -7,6 +7,7 @@
 #include "ShooterCharacter.generated.h"
 
 class AGun;
+class AShooterAIController;
 
 UCLASS()
 class SIMPLESHOOTER_API AShooterCharacter : public ACharacter
@@ -55,6 +56,6 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<AGun> GunClass;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	AGun* Gun;
 };
