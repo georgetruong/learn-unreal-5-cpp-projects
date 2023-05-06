@@ -23,6 +23,7 @@ AGun::AGun()
 void AGun::PullTrigger()
 {
 	UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, Mesh, TEXT("MuzzleFlashSocket"));
+	UGameplayStatics::SpawnSoundAttached(MuzzleSound, Mesh, TEXT("MuzzleFlashSocket"));
 
 	FHitResult Hit;
 	FVector ShotDirection;
@@ -30,6 +31,7 @@ void AGun::PullTrigger()
 	if (bSuccess)
 	{
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, Hit.Location, ShotDirection.Rotation());
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), ImpactSound, Hit.Location);
 
 		AActor* HitActor = Hit.GetActor();
 		if (HitActor) 
@@ -45,14 +47,12 @@ void AGun::PullTrigger()
 void AGun::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
 void AGun::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 bool AGun::GunTrace(FHitResult& Hit, FVector& ShotDirection)
